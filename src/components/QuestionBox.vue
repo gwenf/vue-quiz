@@ -2,7 +2,7 @@
   <div class="question-box-container">
     <b-jumbotron>
       <template slot="lead">
-        Some question here?
+        {{ currentQuestion.question}}
       </template>
 
       <hr class="my-4" />
