@@ -2,7 +2,7 @@
   <div class="question-box-container">
     <b-jumbotron>
       <template slot="lead">
-        {{ currentQuestion.question }}
+        {{ currentQuestion.question | decoder }}
       </template>
 
       <hr class="my-4" />
@@ -14,7 +14,7 @@
           @click.prevent="selectAnswer(index)"
           :class="answerClass(index)"
         >
-          {{ answer }}
+          {{ answer | decoder }}
         </b-list-group-item>
       </b-list-group>
 
@@ -64,6 +64,13 @@ export default {
         this.answered = false
         this.shuffleAnswers()
       }
+    }
+  },
+  filters: {
+    decoder(str) {
+      var textArea = document.createElement("textarea");
+      textArea.innerHTML = str;
+      return textArea.value;
     }
   },
   methods: {
