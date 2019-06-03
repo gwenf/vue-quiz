@@ -25,7 +25,7 @@
       >
         Submit
       </b-button>
-      <b-button @click="next" variant="success">
+      <b-button @click="next" variant="success" :disabled="lastQ">
         Next
       </b-button>
     </b-jumbotron>
@@ -39,7 +39,8 @@ export default {
   props: {
     currentQuestion: Object,
     next: Function,
-    increment: Function
+    increment: Function, 
+    lastQ:Boolean
   },
   data: function() {
     return {

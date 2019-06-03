@@ -13,6 +13,7 @@
             :currentQuestion="questions[index]"
             :next="next"
             :increment="increment"
+            :lastQ="index+1===TotalQ"
           />
         </b-col>
       </b-row>
@@ -35,12 +36,15 @@ export default {
       questions: [],
       index: 0,
       numCorrect: 0,
-      numTotal: 0
+      numTotal: 0, 
+      TotalQ:10
     }
   },
   methods: {
     next() {
-      this.index++
+       if(this.index<this.TotalQ){
+          this.index++
+       }      
     },
     increment(isCorrect) {
       if (isCorrect) {
