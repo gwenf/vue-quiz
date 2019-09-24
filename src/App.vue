@@ -40,7 +40,11 @@ export default {
   },
   methods: {
     next() {
-      this.index++
+      if (this.index === this.questions.length - 1) {
+        this.index = 0
+      } else {
+        this.index++
+      }
     },
     increment(isCorrect) {
       if (isCorrect) {
